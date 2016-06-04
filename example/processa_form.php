@@ -13,8 +13,9 @@ chdir(dirname(__DIR__));
 		$user 	="root";//user
 		$pass 	="";//password
 
-		$produto = new Product(new PDO("mysql:host=".$host.";dbname=".$dbname."\"",$user,$pass));
-		$produto->table("produtos");
+		$produto = new Product(new PDO("mysql:host=$host;dbname=$dbname",$user,$pass));
+		$table = "";//name table
+		$produto->table($table);
 		if(isset($_POST['produto']) && isset($_POST['valor']) && isset($_POST['descricao'])){
 		$nome		= (string) 	utf8_decode($_POST['produto']);
 		$valor		= (float) 	$_POST['valor'];
